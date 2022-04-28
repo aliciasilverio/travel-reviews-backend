@@ -20,7 +20,7 @@ app.use(cors());
 app.use(urlencoded({extended: true}));
 app.use(express.json());
 
-app.use('/travels', travelController);
+app.use('/trips', travelController);
 
 app.listen(PORT, () => {
   console.log("App is running");
