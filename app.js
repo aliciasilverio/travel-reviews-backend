@@ -7,7 +7,7 @@ const morgan = require('morgan');
 const app = express();
 const travelController = require('./controllers/travelController');
 
-const PORT = 3001;
+const PORT = PORT;
 const mongoURI = process.env.MONGO_URI;
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true },
   () => console.log('MongoDB connection established:', mongoURI)
