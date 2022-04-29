@@ -7,8 +7,11 @@ const morgan = require('morgan');
 const app = express();
 const travelController = require('./controllers/travelController');
 
-const PORT = process.env.PORT;
+const PORT = 3001;
 const mongoURI = process.env.MONGO_URI;
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true },
+  () => console.log('MongoDB connection established:', mongoURI)
+)
 
 const db = mongoose.connection;
 db.on('error', err => console.log(err.message + ' is Mongod not running?'));
@@ -25,3 +28,4 @@ app.use('/trips', travelController);
 app.listen(PORT, () => {
   console.log("App is running");
 })
+
